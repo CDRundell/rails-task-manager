@@ -1,9 +1,10 @@
-<h1> HELLO WORLD </h1>
-<ul style="list-style-type:none">
-  <% @tasks.each do |task| %>
-   <% check = task.completed ? "✅" : "⛔" %>
-     <li><%= check %><%= link_to task[:title], task_path(task[:id])%>
-  <% end %>
-</ul>
-
-<%= link_to "Add new task", new_path %>
+<body>
+    <ul style="list-style-type:none">
+    <% @tasks.each do |task| %>
+      <% check = task.completed ? "✅" : "⛔" %>
+      <li><%= check %><%= link_to task[:title], task_path(task[:id])%>
+      <%= link_to "🗑", task_path(task), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  </ul>
+  <%= link_to "Add new task", new_path %>
+</body>
