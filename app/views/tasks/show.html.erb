@@ -1,2 +1,6 @@
 <p><h2><%= @task.title.capitalize %></h2></p>
  <p> <%= @task.details %> </p>
+  <%= link_to "edit task", edit_path %>
+ <p><%= check = @task.completed ? "✅This task is completed" : "⛔This task is not completed yet" %></p>
+
+ <%= link_to 'Back to tasks', url_for(:tasks) %>
